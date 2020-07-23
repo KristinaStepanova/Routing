@@ -1,0 +1,39 @@
+<div class="container mt-5">
+  <!-- <p>{{ users | join:'name' }}</p> -->
+  <div class="alert alert-info" *appMyIf="testIf">Alert</div>
+  <!-- <div class="alert alert-danger" *appMyLoop="let user of users; let i = index">
+    Alert
+  </div> -->
+  <div class="table-responsive">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Phone</th>
+          <th>Company Name</th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users; let i = index">
+          <td appBg bgColor="yellow">{{ i + 1 }}</td>
+          <td>{{ user.name | mySlice }}</td>
+          <td>{{ user.email }}</td>
+          <td>{{ user.phone }}</td>
+          <td>{{ user.company.name }}</td>
+          <td>
+            <button class="btn btn-danger">Delete</button>
+          </td>
+          <td>
+            <button routerLink="/user/{{ user.id }}" class="btn btn-primary">
+              Edit
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
